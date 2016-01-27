@@ -5,7 +5,7 @@
     using log4net;
     using Splat;
 
-    internal class Log4NetSplatLogger : IFullLogger
+    internal sealed class Log4NetSplatLogger : IFullLogger
     {
         private readonly ILog _inner;
 
