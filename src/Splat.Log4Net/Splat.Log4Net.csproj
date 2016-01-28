@@ -64,7 +64,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Target Condition="$(Configuration) == 'Debug'" Name="AfterBuild">
+  <Target Condition="$(Configuration) == 'Release'" Name="AfterBuild">
     <GetAssemblyIdentity AssemblyFiles="$(OutDir)\$(AssemblyName).dll">
       <Output TaskParameter="Assemblies" ItemName="AnalyzerAssemblyInfo" />
     </GetAssemblyIdentity>
