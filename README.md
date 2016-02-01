@@ -4,6 +4,8 @@ Simple Integration of Splat logging to Log4Net. Based on upon old code for React
 
 ## Getting started
 
+Configure Log4Net via any method you wish to use (Config File, Code based, etc.).
+
 During program initialisation use:
 
 ```cs
