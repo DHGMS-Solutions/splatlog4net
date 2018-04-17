@@ -11,12 +11,7 @@
 
         public Log4NetSplatLogger(ILog innerLogger)
         {
-            if (innerLogger == null)
-            {
-                throw new ArgumentNullException(nameof(innerLogger));
-            }
-
-            _inner = innerLogger;
+            _inner = innerLogger ?? throw new ArgumentNullException(nameof(innerLogger));
         }
 
         public void Write(string message, LogLevel logLevel)
@@ -74,42 +69,40 @@
 
         public void Debug(string message, params object[] args)
         {
-            var argString = string.Join(",", args);
-
-            _inner.Debug(message + " {" + argString + "}");
+            _inner.DebugFormat(message, args);
         }
 
         public void Debug<TArgument>(IFormatProvider formatProvider, string message, TArgument argument)
         {
-            _inner.Debug(string.Format(formatProvider, message, argument));
+            _inner.DebugFormat(formatProvider, message, argument);
         }
 
         public void Debug<TArgument>(string message, TArgument argument)
         {
-            _inner.Debug(string.Format(message, argument));
+            _inner.DebugFormat(message, argument);
         }
 
         public void Debug<TArgument1, TArgument2>(IFormatProvider formatProvider, string message, TArgument1 argument1,
                                                   TArgument2 argument2)
         {
-            _inner.Debug(string.Format(formatProvider, message, argument1, argument2));
+            _inner.DebugFormat(formatProvider, message, argument1, argument2);
         }
 
         public void Debug<TArgument1, TArgument2>(string message, TArgument1 argument1, TArgument2 argument2)
         {
-            _inner.Debug(string.Format(message, argument1, argument2));
+            _inner.DebugFormat(message, argument1, argument2);
         }
 
         public void Debug<TArgument1, TArgument2, TArgument3>(IFormatProvider formatProvider, string message, TArgument1 argument1,
                                                               TArgument2 argument2, TArgument3 argument3)
         {
-            _inner.Debug(string.Format(formatProvider, message, argument1, argument2, argument3));
+            _inner.DebugFormat(formatProvider, message, argument1, argument2, argument3);
         }
 
         public void Debug<TArgument1, TArgument2, TArgument3>(string message, TArgument1 argument1, TArgument2 argument2,
                                                               TArgument3 argument3)
         {
-            _inner.Debug(string.Format(message, argument1, argument2, argument3));
+            _inner.DebugFormat(message, argument1, argument2, argument3);
         }
 
         public void Info<T>(T value)
@@ -119,7 +112,7 @@
 
         public void Info<T>(IFormatProvider formatProvider, T value)
         {
-            _inner.Info(string.Format(formatProvider, "{0}", value));
+            _inner.InfoFormat(formatProvider, "{0}", value);
         }
 
         public void InfoException(string message, Exception exception)
@@ -139,40 +132,40 @@
 
         public void Info(string message, params object[] args)
         {
-            _inner.Info(message);
+            _inner.InfoFormat(message, args);
         }
 
         public void Info<TArgument>(IFormatProvider formatProvider, string message, TArgument argument)
         {
-            _inner.Info(message);
+            _inner.InfoFormat(formatProvider, message, argument);
         }
 
         public void Info<TArgument>(string message, TArgument argument)
         {
-            _inner.Info(message);
+            _inner.InfoFormat(message, argument);
         }
 
         public void Info<TArgument1, TArgument2>(IFormatProvider formatProvider, string message, TArgument1 argument1,
                                                  TArgument2 argument2)
         {
-            _inner.Info(message);
+            _inner.InfoFormat(formatProvider, message, argument1, argument2);
         }
 
         public void Info<TArgument1, TArgument2>(string message, TArgument1 argument1, TArgument2 argument2)
         {
-            _inner.Info(message);
+            _inner.InfoFormat(message, argument1, argument2);
         }
 
         public void Info<TArgument1, TArgument2, TArgument3>(IFormatProvider formatProvider, string message, TArgument1 argument1,
                                                              TArgument2 argument2, TArgument3 argument3)
         {
-            _inner.Info(message);
+            _inner.InfoFormat(formatProvider, message, argument1, argument2, argument3);
         }
 
         public void Info<TArgument1, TArgument2, TArgument3>(string message, TArgument1 argument1, TArgument2 argument2,
                                                              TArgument3 argument3)
         {
-            _inner.Info(message);
+            _inner.InfoFormat(message, argument1, argument2, argument3);
         }
 
         public void Warn<T>(T value)
@@ -182,7 +175,7 @@
 
         public void Warn<T>(IFormatProvider formatProvider, T value)
         {
-            _inner.Warn(string.Format(formatProvider, "{0}", value));
+            _inner.WarnFormat(formatProvider, "{0}", value);
         }
 
         public void WarnException(string message, Exception exception)
@@ -192,7 +185,7 @@
 
         public void Warn(IFormatProvider formatProvider, string message, params object[] args)
         {
-            _inner.Warn(message);
+            _inner.WarnFormat(formatProvider, message, args);
         }
 
         public void Warn(string message)
@@ -202,40 +195,40 @@
 
         public void Warn(string message, params object[] args)
         {
-            _inner.Warn(message);
+            _inner.WarnFormat(message, args);
         }
 
         public void Warn<TArgument>(IFormatProvider formatProvider, string message, TArgument argument)
         {
-            _inner.Warn(message);
+            _inner.WarnFormat(formatProvider, message, argument);
         }
 
         public void Warn<TArgument>(string message, TArgument argument)
         {
-            _inner.Warn(message);
+            _inner.WarnFormat(message, argument);
         }
 
         public void Warn<TArgument1, TArgument2>(IFormatProvider formatProvider, string message, TArgument1 argument1,
                                                  TArgument2 argument2)
         {
-            _inner.Warn(message);
+            _inner.WarnFormat(formatProvider, message, argument1, argument2);
         }
 
         public void Warn<TArgument1, TArgument2>(string message, TArgument1 argument1, TArgument2 argument2)
         {
-            _inner.Warn(message);
+            _inner.WarnFormat(message, argument1, argument2);
         }
 
         public void Warn<TArgument1, TArgument2, TArgument3>(IFormatProvider formatProvider, string message, TArgument1 argument1,
                                                              TArgument2 argument2, TArgument3 argument3)
         {
-            _inner.Warn(message);
+            _inner.WarnFormat(formatProvider, message, argument1, argument2, argument3);
         }
 
         public void Warn<TArgument1, TArgument2, TArgument3>(string message, TArgument1 argument1, TArgument2 argument2,
                                                              TArgument3 argument3)
         {
-            _inner.Warn(message);
+            _inner.WarnFormat(message, argument1, argument2, argument3);
         }
 
         public void Error<T>(T value)
@@ -245,7 +238,7 @@
 
         public void Error<T>(IFormatProvider formatProvider, T value)
         {
-            _inner.Error(string.Format(formatProvider, "{0}", value));
+            _inner.ErrorFormat(formatProvider, "{0}", value);
         }
 
         public void ErrorException(string message, Exception exception)
@@ -255,7 +248,7 @@
 
         public void Error(IFormatProvider formatProvider, string message, params object[] args)
         {
-            _inner.Error(message);
+            _inner.ErrorFormat(formatProvider, message, args);
         }
 
         public void Error(string message)
@@ -265,40 +258,40 @@
 
         public void Error(string message, params object[] args)
         {
-            _inner.Error(message);
+            _inner.ErrorFormat(message, args);
         }
 
         public void Error<TArgument>(IFormatProvider formatProvider, string message, TArgument argument)
         {
-            _inner.Error(message);
+            _inner.ErrorFormat(formatProvider, message, argument);
         }
 
         public void Error<TArgument>(string message, TArgument argument)
         {
-            _inner.Error(message);
+            _inner.ErrorFormat(message, argument);
         }
 
         public void Error<TArgument1, TArgument2>(IFormatProvider formatProvider, string message, TArgument1 argument1,
                                                   TArgument2 argument2)
         {
-            _inner.Error(message);
+            _inner.ErrorFormat(formatProvider, message, argument1, argument2);
         }
 
         public void Error<TArgument1, TArgument2>(string message, TArgument1 argument1, TArgument2 argument2)
         {
-            _inner.Error(message);
+            _inner.ErrorFormat(message, argument1, argument2);
         }
 
         public void Error<TArgument1, TArgument2, TArgument3>(IFormatProvider formatProvider, string message, TArgument1 argument1,
                                                               TArgument2 argument2, TArgument3 argument3)
         {
-            _inner.Error(message);
+            _inner.ErrorFormat(formatProvider, message, argument1, argument2, argument3);
         }
 
         public void Error<TArgument1, TArgument2, TArgument3>(string message, TArgument1 argument1, TArgument2 argument2,
                                                               TArgument3 argument3)
         {
-            _inner.Error(message);
+            _inner.ErrorFormat(message, argument1, argument2, argument3);
         }
 
         public void Fatal<T>(T value)
@@ -308,7 +301,7 @@
 
         public void Fatal<T>(IFormatProvider formatProvider, T value)
         {
-            _inner.Fatal(string.Format(formatProvider, "{0}", value));
+            _inner.FatalFormat(formatProvider, "{0}", value);
         }
 
         public void FatalException(string message, Exception exception)
@@ -318,7 +311,7 @@
 
         public void Fatal(IFormatProvider formatProvider, string message, params object[] args)
         {
-            _inner.Fatal(message);
+            _inner.FatalFormat(formatProvider, message, args);
         }
 
         public void Fatal(string message)
@@ -328,40 +321,40 @@
 
         public void Fatal(string message, params object[] args)
         {
-            _inner.Fatal(message);
+            _inner.FatalFormat(message, args);
         }
 
         public void Fatal<TArgument>(IFormatProvider formatProvider, string message, TArgument argument)
         {
-            _inner.Fatal(message);
+            _inner.FatalFormat(formatProvider, message, argument);
         }
 
         public void Fatal<TArgument>(string message, TArgument argument)
         {
-            _inner.Fatal(message);
+            _inner.FatalFormat(message, argument);
         }
 
         public void Fatal<TArgument1, TArgument2>(IFormatProvider formatProvider, string message, TArgument1 argument1,
                                                   TArgument2 argument2)
         {
-            _inner.Fatal(message);
+            _inner.FatalFormat(formatProvider, message, argument1, argument2);
         }
 
         public void Fatal<TArgument1, TArgument2>(string message, TArgument1 argument1, TArgument2 argument2)
         {
-            _inner.Fatal(message);
+            _inner.FatalFormat(message, argument1, argument2);
         }
 
         public void Fatal<TArgument1, TArgument2, TArgument3>(IFormatProvider formatProvider, string message, TArgument1 argument1,
                                                               TArgument2 argument2, TArgument3 argument3)
         {
-            _inner.Fatal(message);
+            _inner.FatalFormat(formatProvider, message, argument1, argument2, argument3);
         }
 
         public void Fatal<TArgument1, TArgument2, TArgument3>(string message, TArgument1 argument1, TArgument2 argument2,
                                                               TArgument3 argument3)
         {
-            _inner.Fatal(message);
+            _inner.FatalFormat(message, argument1, argument2, argument3);
         }
     }
 }

@@ -6,7 +6,7 @@
         {
             var funcLogManager = new FuncLogManager(type =>
             {
-                var actualLogger = log4net.LogManager.GetLogger(type.ToString());
+                var actualLogger = log4net.LogManager.GetLogger(type);
                 return new Log4NetSplatLogger(actualLogger);
             });
 
