@@ -13,7 +13,7 @@
     <copyright>Copyright belongs to respective package owners</copyright>
     <tags>Log4Net Splat</tags>
     <dependencies>
-      <dependency id="splat" version="1.6.2" />
+      <dependency id="splat" version="3.0.0" />
       <dependency id="log4net" version="2.0.5" />
     </dependencies>
   </metadata>

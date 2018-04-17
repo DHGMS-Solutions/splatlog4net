@@ -54,7 +54,7 @@
 
         public void Debug<T>(IFormatProvider formatProvider, T value)
         {
-            _inner.Debug(value);
+            _inner.Debug(string.Format(formatProvider, "{0}", value));
         }
 
         public void DebugException(string message, Exception exception)
@@ -81,35 +81,35 @@
 
         public void Debug<TArgument>(IFormatProvider formatProvider, string message, TArgument argument)
         {
-            _inner.Debug(message);
+            _inner.Debug(string.Format(formatProvider, message, argument));
         }
 
         public void Debug<TArgument>(string message, TArgument argument)
         {
-            _inner.Debug(message);
+            _inner.Debug(string.Format(message, argument));
         }
 
         public void Debug<TArgument1, TArgument2>(IFormatProvider formatProvider, string message, TArgument1 argument1,
                                                   TArgument2 argument2)
         {
-            _inner.Debug(message);
+            _inner.Debug(string.Format(formatProvider, message, argument1, argument2));
         }
 
         public void Debug<TArgument1, TArgument2>(string message, TArgument1 argument1, TArgument2 argument2)
         {
-            _inner.Debug(message);
+            _inner.Debug(string.Format(message, argument1, argument2));
         }
 
         public void Debug<TArgument1, TArgument2, TArgument3>(IFormatProvider formatProvider, string message, TArgument1 argument1,
                                                               TArgument2 argument2, TArgument3 argument3)
         {
-            _inner.Debug(message);
+            _inner.Debug(string.Format(formatProvider, message, argument1, argument2, argument3));
         }
 
         public void Debug<TArgument1, TArgument2, TArgument3>(string message, TArgument1 argument1, TArgument2 argument2,
                                                               TArgument3 argument3)
         {
-            _inner.Debug(message);
+            _inner.Debug(string.Format(message, argument1, argument2, argument3));
         }
 
         public void Info<T>(T value)
@@ -119,7 +119,7 @@
 
         public void Info<T>(IFormatProvider formatProvider, T value)
         {
-            _inner.Info(value);
+            _inner.Info(string.Format(formatProvider, "{0}", value));
         }
 
         public void InfoException(string message, Exception exception)
@@ -182,7 +182,7 @@
 
         public void Warn<T>(IFormatProvider formatProvider, T value)
         {
-            _inner.Warn(value);
+            _inner.Warn(string.Format(formatProvider, "{0}", value));
         }
 
         public void WarnException(string message, Exception exception)
@@ -245,7 +245,7 @@
 
         public void Error<T>(IFormatProvider formatProvider, T value)
         {
-            _inner.Error(value);
+            _inner.Error(string.Format(formatProvider, "{0}", value));
         }
 
         public void ErrorException(string message, Exception exception)
@@ -308,7 +308,7 @@
 
         public void Fatal<T>(IFormatProvider formatProvider, T value)
         {
-            _inner.Fatal(value);
+            _inner.Fatal(string.Format(formatProvider, "{0}", value));
         }
 
         public void FatalException(string message, Exception exception)
